@@ -3,5 +3,3 @@
 
 Software Engineering Leads
  Milton & Kojiro
-
-hello world

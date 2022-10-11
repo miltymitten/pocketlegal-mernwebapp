@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Button from 'react-bootstrap/Button';
 
@@ -7,8 +7,7 @@ function App() {
   const [result, setResults] = useState([]);
   const [searchInfo, setSearchInfo] = useState({});
 
-  const handleSearch = async e => {
-    e.preventDefault();
+  const handleSearch = async () => {
 
     if (search ==='') return;
     
@@ -20,42 +19,63 @@ function App() {
       throw Error(response.statusText)
 
     }
-    const json =await response.json();
+    const json = await response.json();
 
     setResults(json.query.search)
     setSearchInfo(json.query.searchinfo);
   }
 
-  //click handle here.
+  // keeps track of the search variable and runs handleSearch when search is updated
+  useEffect(() => {
+    handleSearch()
+    }, [search]);
 
   return (
     <div className="App">
       <header>
         <h1>Legal Wiki Seeker</h1>
 
-        <form className="search-box" onClick={handleSearch}> 
+        <form onClick={e => setSearch(e.target.value)}> 
           
           <Button
             variant = "secondary"
+            value="Judge"
             type="button" 
             placeholder="what are you looking for?"
-            //value = {search}
-            onChange={e=>setSearch(e.target.value)}>Milton
+            >Judge
             </Button> 
 
-          <input 
+          <Button
+          variant = "secondary"
+          value="Jury"
+          type="button" 
+          placeholder="what are you looking for?"
+          >Jury
+          </Button> 
+
+          <Button
+          variant = "secondary"
+          value="Lawyer"
+          type="button" 
+          placeholder="what are you looking for?"
+          >Lawyer
+          </Button> 
+
+          {/* <input 
             type="button" 
+            value="Jury"
             placeholder="what are you looking for?"
             //value = {search}
-            onChange={e=>setSearch(e.target.value)}
+            // onChange={e=>setSearch(e.target.value)}
           /> 
 
           <input 
             type="button" 
+            value="Lawyer"
             placeholder="what are you looking for?"
             //value = {search}
-            onChange={e=>setSearch(e.target.value)}
-          /> 
+            // onChange={e=>setSearch(e.target.value)}
+          />  */}
 
         </form>
        
