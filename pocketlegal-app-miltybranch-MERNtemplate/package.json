@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "web" : "node ./app.js",
+    "web": "node ./app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -25,6 +25,9 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "engines": {
+    "node": "8.x"
   },
   "browserslist": {
     "production": [
