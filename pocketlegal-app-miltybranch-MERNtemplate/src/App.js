@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Button from 'react-bootstrap/Button';
+import Nav from 'react-bootstrap/Nav';
 
 function App() {
   const [search, setSearch] = useState("");
@@ -32,6 +33,26 @@ function App() {
 
   return (
     <div className="App">
+
+      <div className='Nav'>
+      <Nav fill variant="tabs" defaultActiveKey="/home">
+      <Nav.Item>
+        <Nav.Link href="/home">Pocket Legal</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-1">Beta 1</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-2">Beta 2</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="disabled" disabled>
+          About Us
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
+      </div>
+
       <header>
         <h1>Legal Wiki Seeker</h1>
 
