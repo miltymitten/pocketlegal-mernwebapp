@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function App() {
   const [search, setSearch] = useState("");
@@ -32,23 +35,18 @@ function App() {
     }, [search]);
 
   return (
-    <div className="App">
 
+    <Container fluid="md">
+    <Row>
+      <Col>
+    <div className="App">
       <div className='Nav'>
       <Nav fill variant="tabs" defaultActiveKey="/home">
       <Nav.Item>
         <Nav.Link href="/home">Pocket Legal</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-1">Beta 1</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-2">Beta 2</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          About Us
-        </Nav.Link>
+        <Nav.Link href="https://github.com/miltymitten/pocketlegal-mernwebapp" target="_blank">About Us</Nav.Link>
       </Nav.Item>
     </Nav>
       </div>
@@ -120,7 +118,9 @@ function App() {
         
       </div>
     </div>
-
+    </Col>
+    </Row>
+  </Container>
   );
 }
 
